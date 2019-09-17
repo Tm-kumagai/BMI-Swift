@@ -10,9 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var pageTitle: UINavigationBar!
+    @IBAction func bmiButton(_ sender: UIButton) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // title変更
+        
+        
     }
 
 
