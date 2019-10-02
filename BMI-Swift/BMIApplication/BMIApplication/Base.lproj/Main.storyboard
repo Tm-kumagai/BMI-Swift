@@ -24,7 +24,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="buttonテキスト"/>
                                 <connections>
-                                    <action selector="bmiButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JaZ-dC-1aZ"/>
+                                    <action selector="bmiButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rMT-Qi-H5c"/>
                                 </connections>
                             </button>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ipO-TM-OJq">
@@ -86,27 +86,38 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="言い訳記入欄" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CvD-Ny-slR">
-                                <rect key="frame" x="67" y="427" width="240" height="128"/>
+                                <rect key="frame" x="67" y="453" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BMI Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5E-Zo-tXL">
+                                <rect key="frame" x="146" y="410" width="82" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bmiButton" destination="8bC-Xf-vdC" id="xWu-IF-zdS"/>
+                        <outlet property="bmiResult" destination="I5E-Zo-tXL" id="mBJ-Ka-G0A"/>
+                        <outlet property="he_input" destination="OcD-Yx-acT" id="3em-bg-H9H"/>
                         <outlet property="he_title" destination="DDU-JG-dIf" id="ugi-m4-NCv"/>
-                        <outlet property="he_unit" destination="QvD-cv-z5e" id="mGz-84-wbN"/>
+                        <outlet property="he_unit" destination="QvD-cv-z5e" id="exL-cG-1Tc"/>
                         <outlet property="headerTitle" destination="Y3F-Kf-ALk" id="Jzg-pk-zI4"/>
-                        <outlet property="we_title" destination="aGG-FM-3OS" id="qrt-Nc-lkw"/>
+                        <outlet property="we_input" destination="v3X-P4-DCz" id="HBw-mG-roS"/>
+                        <outlet property="we_title" destination="aGG-FM-3OS" id="X2e-IO-e09"/>
                         <outlet property="we_unit" destination="psp-o1-SlS" id="Bjg-xx-w0Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1519.2" y="52.623688155922046"/>
+            <point key="canvasLocation" x="-548" y="35"/>
         </scene>
     </scenes>
 </document>

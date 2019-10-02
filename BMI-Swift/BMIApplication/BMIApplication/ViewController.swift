@@ -10,13 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // 身長Outlet接続
     @IBOutlet weak var he_title: UILabel!
-    @IBOutlet var he_unit: UILabel!
-    @IBOutlet var we_title: UILabel!
+    @IBOutlet weak var he_input: UITextField!
+    @IBOutlet weak var he_unit: UILabel!
+    // 体重Outlet接続
+    @IBOutlet weak var we_title: UILabel!
+    @IBOutlet weak var we_input: UITextField!
     @IBOutlet weak var we_unit: UILabel!
-    @IBAction func bmiButton(_ sender: UIButton) {
+    // BMIボタンまわりのOutlet接続
+    @IBOutlet weak var bmiButton: UIButton!
+    @IBOutlet weak var bmiResult: UILabel!
+    @IBAction func bmiButtonTap(_ sender: UIButton) {
     }
+    // その他Outlet接続
     @IBOutlet weak var headerTitle: UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,8 +40,10 @@ class ViewController: UIViewController {
         we_title.text = "体重"
         we_unit.text = "kg"
         
+        // bmi計算ボタンテキスト変更
+        bmiButton.setTitle("BMIを計算する", for: UIControl.State.normal)
+        
+        
+        
     }
-
-
 }
-
