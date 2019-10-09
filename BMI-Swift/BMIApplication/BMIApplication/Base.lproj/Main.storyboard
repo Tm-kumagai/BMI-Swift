@@ -93,7 +93,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BMI Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5E-Zo-tXL">
-                                <rect key="frame" x="146" y="410" width="82" height="21"/>
+                                <rect key="frame" x="43" y="405" width="288" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -104,7 +104,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="bmiButton" destination="8bC-Xf-vdC" id="xWu-IF-zdS"/>
+                        <outlet property="bmiButtonText" destination="MhP-0S-43y" id="BbJ-v6-cdJ"/>
                         <outlet property="bmiResult" destination="I5E-Zo-tXL" id="mBJ-Ka-G0A"/>
                         <outlet property="he_input" destination="OcD-Yx-acT" id="3em-bg-H9H"/>
                         <outlet property="he_title" destination="DDU-JG-dIf" id="ugi-m4-NCv"/>
@@ -117,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-548" y="35"/>
+            <point key="canvasLocation" x="-548" y="34.632683658170919"/>
         </scene>
     </scenes>
 </document>

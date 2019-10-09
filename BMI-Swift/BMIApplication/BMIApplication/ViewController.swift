@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     // 身長Outlet接続
     @IBOutlet weak var he_title: UILabel!
@@ -19,10 +19,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var we_input: UITextField!
     @IBOutlet weak var we_unit: UILabel!
     // BMIボタンまわりのOutlet接続
-    @IBOutlet weak var bmiButton: UIButton!
+    @IBOutlet weak var bmiButtonText: UIButton!
     @IBOutlet weak var bmiResult: UILabel!
-    @IBAction func bmiButtonTap(_ sender: UIButton) {
-    }
+     var he_str = "   "
     // その他Outlet接続
     @IBOutlet weak var headerTitle: UINavigationBar!
     
@@ -41,9 +40,27 @@ class ViewController: UIViewController {
         we_unit.text = "kg"
         
         // bmi計算ボタンテキスト変更
-        bmiButton.setTitle("BMIを計算する", for: UIControl.State.normal)
+        bmiButtonText.setTitle("BMIを計算する", for: .normal)
         
-        
-        
+        // bmi計算結果変更
+        bmiResult.text = "あなたのBMIは\(he_str)でした"
     }
+    
+    // bmiボタンタップ処理
+    @IBAction func bmiButtonTap(_ sender: UIButton) {
+        he_str = he_input.text!
+        // bmi計算結果変更
+        bmiResult.text = "あなたのBMIは\(he_str)でした"
+    }
+    
+    // キーボードクローズ処理
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (self.he_input.isFirstResponder) {
+            self.he_input.resignFirstResponder()
+        }
+        if (self.we_input.isFirstResponder) {
+            self.we_input.resignFirstResponder()
+        }
+    }
+    
 }
