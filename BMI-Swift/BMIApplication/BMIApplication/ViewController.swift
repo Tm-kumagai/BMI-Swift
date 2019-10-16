@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // BMIボタンまわりのOutlet接続
     @IBOutlet weak var bmiButtonText: UIButton!
     @IBOutlet weak var bmiResult: UILabel!
-     var he_str = "   "
+
     // その他Outlet接続
     @IBOutlet weak var headerTitle: UINavigationBar!
     
@@ -39,18 +39,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
         we_title.text = "体重"
         we_unit.text = "kg"
         
+        // キーボード設定
+        he_input.keyboardType = UIKeyboardType.numberPad
+        we_input.keyboardType = UIKeyboardType.numberPad
+        
         // bmi計算ボタンテキスト変更
         bmiButtonText.setTitle("BMIを計算する", for: .normal)
         
-        // bmi計算結果変更
-        bmiResult.text = "あなたのBMIは\(he_str)でした"
+        // bmi結果テキスト変更
+        let space = "   "
+        bmiResult.text = "あなたのBMIは　\(space)　でした"
     }
     
     // bmiボタンタップ処理
     @IBAction func bmiButtonTap(_ sender: UIButton) {
-        he_str = he_input.text!
-        // bmi計算結果変更
-        bmiResult.text = "あなたのBMIは\(he_str)でした"
+        //入力値がどちらか一方でも空の場合
+        if he_input.text!.isEmpty || we_input.text!.isEmpty {
+            return
+        }
+        // bmi計算
+        let he_str = Double(he_input.text!)!
+        let we_str = Double(we_input.text!)!
+        let doubleBmi = we_str / (he_str / 100 * he_str / 100)
+        let bmiScore = round(doubleBmi * 10) / 10
+        // bmi結果テキスト変更
+        bmiResult.text = "あなたのBMIは　\(bmiScore)　でした"
     }
     
     // キーボードクローズ処理
