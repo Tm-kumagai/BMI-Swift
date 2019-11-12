@@ -40,8 +40,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         we_unit.text = "kg"
         
         // キーボード設定
-        he_input.keyboardType = UIKeyboardType.numberPad
-        we_input.keyboardType = UIKeyboardType.numberPad
+        he_input.keyboardType = UIKeyboardType.decimalPad
+        we_input.keyboardType = UIKeyboardType.decimalPad
         
         // bmi計算ボタンテキスト変更
         bmiButtonText.setTitle("BMIを計算する", for: .normal)
