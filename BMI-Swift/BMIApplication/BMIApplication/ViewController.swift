@@ -53,17 +53,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // bmiボタンタップ処理
     @IBAction func bmiButtonTap(_ sender: UIButton) {
-        //入力値がどちらか一方でも空の場合
+        // 入力値がどちらか一方でも空の場合
         if he_input.text!.isEmpty || we_input.text!.isEmpty {
             return
         }
+        
+        // 入力値の変換
+        let he_double = Double(he_input.text!) ?? 0.0
+        let we_double = Double(we_input.text!) ?? 0.0
+        
+        // 入力値が変換できない時
+        if he_double  == 0.0 || we_double == 0.0 {
+            return
+        }
+        
         // bmi計算
-        let he_str = Double(he_input.text!)!
-        let we_str = Double(we_input.text!)!
-        let doubleBmi = we_str / (he_str / 100 * he_str / 100)
-        let bmiScore = round(doubleBmi * 10) / 10
+        let doubleBmi = we_double / (he_double / 100 * he_double / 100)
+        let bmiCalcResult = round(doubleBmi * 10) / 10
         // bmi結果テキスト変更
-        bmiResult.text = "あなたのBMIは　\(bmiScore)　でした"
+        bmiResult.text = "あなたのBMIは　\(bmiCalcResult)　でした"
+        // bmi保存用変数
+        let bmiRecordValue = UserDefaults.standard
+        let bmiRecordkey = "bmi"
+        // bmi保存処理
+        bmiRecordValue.set(bmiCalcResult, forKey: bmiRecordkey)
+        // bmi取り出し処理
+        if let isBmiRecord = bmiRecordValue.string(forKey: "bmi") {
+            print("key=" + bmiRecordkey + ", 履歴=" + isBmiRecord)
+        }
     }
     
     // キーボードクローズ処理
