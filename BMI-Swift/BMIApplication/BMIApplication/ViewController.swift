@@ -24,6 +24,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     // その他Outlet接続
     @IBOutlet weak var headerTitle: UINavigationBar!
+    @IBOutlet weak var iiwake_input: UITextView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +57,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func bmiButtonTap(_ sender: UIButton) {
         // 入力値がどちらか一方でも空の場合
         if he_input.text!.isEmpty || we_input.text!.isEmpty {
+            
+            // 空入力時にダイアログ表示
+            let emptyInputDialog = UIAlertController(title: "身長・体重が未入力", message: "2つとも入力してから計算してください", preferredStyle: .alert)
+            emptyInputDialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(emptyInputDialog, animated: true, completion: nil)
+            
             return
         }
         
@@ -64,6 +72,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         // 入力値が変換できない時
         if he_double  == 0.0 || we_double == 0.0 {
+            
+            // 入力値が間違い時にダイアログ表示
+            let wrongInputDialog = UIAlertController(title: "入力値が間違っています", message: "正しい値を入力してください", preferredStyle: .alert)
+            wrongInputDialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(wrongInputDialog, animated: true, completion: nil)
+            
             return
         }
         
@@ -74,22 +88,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
         bmiResult.text = "あなたのBMIは　\(bmiCalcResult)　でした"
         // bmi保存用変数
         let bmiRecordValue = UserDefaults.standard
-        let bmiRecordkey = "bmi"
+        
+        // 今日の日付フォーマット処理
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .short
+        dateFormat.timeStyle = .none
+        let formattedToday = dateFormat.string(from: Date())
+        
         // bmi保存処理
-        bmiRecordValue.set(bmiCalcResult, forKey: bmiRecordkey)
+        bmiRecordValue.set(bmiCalcResult, forKey: formattedToday)
         // bmi取り出し処理
-        if let isBmiRecord = bmiRecordValue.string(forKey: "bmi") {
-            print("key=" + bmiRecordkey + ", 履歴=" + isBmiRecord)
+        if let isBmiRecord = bmiRecordValue.string(forKey: formattedToday) {
+            print("key=\(formattedToday), 身長=\(he_double), 体重=\(we_double), BMI=\(isBmiRecord)")
         }
     }
     
     // キーボードクローズ処理
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 身長
         if (self.he_input.isFirstResponder) {
             self.he_input.resignFirstResponder()
         }
+        // 体重
         if (self.we_input.isFirstResponder) {
             self.we_input.resignFirstResponder()
+        }
+        // 言い訳
+        if (self.iiwake_input.isFirstResponder) {
+            self.iiwake_input.resignFirstResponder()
         }
     }
     

@@ -102,6 +102,7 @@
                         <outlet property="he_title" destination="DDU-JG-dIf" id="ugi-m4-NCv"/>
                         <outlet property="he_unit" destination="QvD-cv-z5e" id="exL-cG-1Tc"/>
                         <outlet property="headerTitle" destination="Y3F-Kf-ALk" id="Jzg-pk-zI4"/>
+                        <outlet property="iiwake_input" destination="CvD-Ny-slR" id="zVY-V2-srz"/>
                         <outlet property="we_input" destination="v3X-P4-DCz" id="HBw-mG-roS"/>
                         <outlet property="we_title" destination="aGG-FM-3OS" id="X2e-IO-e09"/>
                         <outlet property="we_unit" destination="psp-o1-SlS" id="Bjg-xx-w0Z"/>
