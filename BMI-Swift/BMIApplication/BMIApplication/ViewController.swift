@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  BMIApplication
 //
-//  Created by cries on 2019/09/17.
+//  Created by t-kumagai on 2019/09/17.
 //  Copyright © 2019年 cries. All rights reserved.
 //
 
