@@ -53,6 +53,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         bmiResult.text = "あなたのBMIは　\(space)　でした"
     }
     
+    var dateRecordList: [String] = []
+    
     // bmiボタンタップ処理
     @IBAction func bmiButtonTap(_ sender: UIButton) {
         // 入力値がどちらか一方でも空の場合
@@ -95,11 +97,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
         dateFormat.timeStyle = .none
         let formattedToday = dateFormat.string(from: Date())
         
+        // 日付保存用変数
+        if dateRecordList == [] {
+            dateRecordList = [formattedToday]
+        }
+        if let firstIndex = dateRecordList.index(of: "\(formattedToday)") {
+            print("あるよ")
+        } else {
+            print("ないよ")
+            dateRecordList.append(formattedToday)
+        }
+        
         // bmi保存処理
         bmiRecordValue.set(bmiCalcResult, forKey: formattedToday)
         // bmi取り出し処理
         if let isBmiRecord = bmiRecordValue.string(forKey: formattedToday) {
             print("key=\(formattedToday), 身長=\(he_double), 体重=\(we_double), BMI=\(isBmiRecord)")
+            print("\(dateRecordList)")
         }
     }
     
