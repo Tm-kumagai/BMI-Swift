@@ -55,6 +55,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var dateRecordList: [String] = []
     
+    // 今日の日付フォーマット処理
+    func dateFormat() -> String {
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .short
+        dateFormat.timeStyle = .none
+        let formattedToday = dateFormat.string(from: Date())
+        return formattedToday
+    }
+    
     // bmiボタンタップ処理
     @IBAction func bmiButtonTap(_ sender: UIButton) {
         // 入力値がどちらか一方でも空の場合
@@ -91,11 +100,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // bmi保存用変数
         let bmiRecordValue = UserDefaults.standard
         
-        // 今日の日付フォーマット処理
-        let dateFormat = DateFormatter()
-        dateFormat.dateStyle = .short
-        dateFormat.timeStyle = .none
-        let formattedToday = dateFormat.string(from: Date())
+        // 今日の日付フォーマット処理呼び出し
+        let formattedToday = dateFormat()
         
         // 日付保存用変数
         if dateRecordList == [] {
@@ -115,6 +121,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("key=\(formattedToday), 身長=\(he_double), 体重=\(we_double), BMI=\(isBmiRecord)")
             print("\(dateRecordList)")
         }
+        
+        let recordViewController = RecordViewController()
     }
     
     // キーボードクローズ処理

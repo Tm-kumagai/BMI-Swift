@@ -10,23 +10,41 @@ import UIKit
 
 class RecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let TODO = ["おおお！", "できてる！！", "じゃん！！！"]
+    @IBOutlet weak var headerTitle: UINavigationBar!
+    
+    var TODO = [""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // title変更
+        headerTitle.items![0].title = "履歴"
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    // BMI履歴をセルに入れる
+    func recordIntoCell() {
+        let bmiRecordValue = UserDefaults.standard
+        let viewController = ViewController()
+        let formattedToday = viewController.dateFormat()
+        
+        let record = bmiRecordValue.string(forKey: formattedToday) as! String
+        TODO = [record]
+    }
+    
     // セルの個数をカウント
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func cellCount(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        recordIntoCell()
         return TODO.count
     }
     
     // セルに値を設定するデータソースメソッド
-    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func dataSetOfCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        recordIntoCell()
         // セルを取得する
         let bmiRecordDateCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "bmiRecordDateCell", for: indexPath)
         // セルに表示する値を設定する
