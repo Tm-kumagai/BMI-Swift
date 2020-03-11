@@ -14,9 +14,15 @@
 		23DA86BD233077E500CC5CC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DA86BB233077E500CC5CC0 /* LaunchScreen.storyboard */; };
 		23DA86C8233077E600CC5CC0 /* BMIApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA86C7233077E600CC5CC0 /* BMIApplicationTests.swift */; };
 		23DA86D3233077E600CC5CC0 /* BMIApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA86D2233077E600CC5CC0 /* BMIApplicationUITests.swift */; };
+		5005CA0E2418AD0A00C75ED1 /* icon_record_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5005CA082418AD0A00C75ED1 /* icon_record_3x.png */; };
+		5005CA0F2418AD0A00C75ED1 /* icon_record_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5005CA092418AD0A00C75ED1 /* icon_record_2x.png */; };
+		5005CA102418AD0A00C75ED1 /* icon_input_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5005CA0A2418AD0A00C75ED1 /* icon_input_2x.png */; };
+		5005CA112418AD0A00C75ED1 /* icon_input_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5005CA0B2418AD0A00C75ED1 /* icon_input_3x.png */; };
+		5005CA122418AD0A00C75ED1 /* icon_input_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5005CA0C2418AD0A00C75ED1 /* icon_input_1x.png */; };
+		5005CA132418AD0A00C75ED1 /* icon_record_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5005CA0D2418AD0A00C75ED1 /* icon_record_1x.png */; };
+		5005CA152418B15000C75ED1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005CA142418B15000C75ED1 /* TabBarController.swift */; };
+		5005CA172418B67100C75ED1 /* TabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005CA162418B67100C75ED1 /* TabBarDelegate.swift */; };
 		501063B723C3080000655151 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501063B623C3080000655151 /* RecordViewController.swift */; };
-		501494C2238FC7B200A91E13 /* icon_input.png in Resources */ = {isa = PBXBuildFile; fileRef = 501494C1238FC7B200A91E13 /* icon_input.png */; };
-		501494C4238FC7C900A91E13 /* icon_record.png in Resources */ = {isa = PBXBuildFile; fileRef = 501494C3238FC7C900A91E13 /* icon_record.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +56,15 @@
 		23DA86CE233077E600CC5CC0 /* BMIApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMIApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23DA86D2233077E600CC5CC0 /* BMIApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIApplicationUITests.swift; sourceTree = "<group>"; };
 		23DA86D4233077E600CC5CC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5005CA082418AD0A00C75ED1 /* icon_record_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_record_3x.png; sourceTree = "<group>"; };
+		5005CA092418AD0A00C75ED1 /* icon_record_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_record_2x.png; sourceTree = "<group>"; };
+		5005CA0A2418AD0A00C75ED1 /* icon_input_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_input_2x.png; sourceTree = "<group>"; };
+		5005CA0B2418AD0A00C75ED1 /* icon_input_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_input_3x.png; sourceTree = "<group>"; };
+		5005CA0C2418AD0A00C75ED1 /* icon_input_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_input_1x.png; sourceTree = "<group>"; };
+		5005CA0D2418AD0A00C75ED1 /* icon_record_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_record_1x.png; sourceTree = "<group>"; };
+		5005CA142418B15000C75ED1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		5005CA162418B67100C75ED1 /* TabBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDelegate.swift; sourceTree = "<group>"; };
 		501063B623C3080000655151 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
-		501494C1238FC7B200A91E13 /* icon_input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_input.png; sourceTree = "<group>"; };
-		501494C3238FC7C900A91E13 /* icon_record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_record.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +115,7 @@
 		23DA86B1233077E300CC5CC0 /* BMIApplication */ = {
 			isa = PBXGroup;
 			children = (
-				501494C0238FC59C00A91E13 /* Icon */,
+				5005CA072418AD0A00C75ED1 /* Icon */,
 				23DA86B2233077E300CC5CC0 /* AppDelegate.swift */,
 				23DA86B4233077E300CC5CC0 /* ViewController.swift */,
 				501063B623C3080000655151 /* RecordViewController.swift */,
@@ -111,6 +123,8 @@
 				23DA86B9233077E500CC5CC0 /* Assets.xcassets */,
 				23DA86BB233077E500CC5CC0 /* LaunchScreen.storyboard */,
 				23DA86BE233077E500CC5CC0 /* Info.plist */,
+				5005CA142418B15000C75ED1 /* TabBarController.swift */,
+				5005CA162418B67100C75ED1 /* TabBarDelegate.swift */,
 			);
 			path = BMIApplication;
 			sourceTree = "<group>";
@@ -133,11 +147,15 @@
 			path = BMIApplicationUITests;
 			sourceTree = "<group>";
 		};
-		501494C0238FC59C00A91E13 /* Icon */ = {
+		5005CA072418AD0A00C75ED1 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
-				501494C3238FC7C900A91E13 /* icon_record.png */,
-				501494C1238FC7B200A91E13 /* icon_input.png */,
+				5005CA082418AD0A00C75ED1 /* icon_record_3x.png */,
+				5005CA092418AD0A00C75ED1 /* icon_record_2x.png */,
+				5005CA0A2418AD0A00C75ED1 /* icon_input_2x.png */,
+				5005CA0B2418AD0A00C75ED1 /* icon_input_3x.png */,
+				5005CA0C2418AD0A00C75ED1 /* icon_input_1x.png */,
+				5005CA0D2418AD0A00C75ED1 /* icon_record_1x.png */,
 			);
 			path = Icon;
 			sourceTree = "<group>";
@@ -246,11 +264,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				501494C4238FC7C900A91E13 /* icon_record.png in Resources */,
+				5005CA0F2418AD0A00C75ED1 /* icon_record_2x.png in Resources */,
+				5005CA132418AD0A00C75ED1 /* icon_record_1x.png in Resources */,
 				23DA86BD233077E500CC5CC0 /* LaunchScreen.storyboard in Resources */,
-				501494C2238FC7B200A91E13 /* icon_input.png in Resources */,
+				5005CA112418AD0A00C75ED1 /* icon_input_3x.png in Resources */,
 				23DA86BA233077E500CC5CC0 /* Assets.xcassets in Resources */,
+				5005CA122418AD0A00C75ED1 /* icon_input_1x.png in Resources */,
+				5005CA0E2418AD0A00C75ED1 /* icon_record_3x.png in Resources */,
 				23DA86B8233077E300CC5CC0 /* Main.storyboard in Resources */,
+				5005CA102418AD0A00C75ED1 /* icon_input_2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +299,8 @@
 			files = (
 				501063B723C3080000655151 /* RecordViewController.swift in Sources */,
 				23DA86B5233077E300CC5CC0 /* ViewController.swift in Sources */,
+				5005CA172418B67100C75ED1 /* TabBarDelegate.swift in Sources */,
+				5005CA152418B15000C75ED1 /* TabBarController.swift in Sources */,
 				23DA86B3233077E300CC5CC0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

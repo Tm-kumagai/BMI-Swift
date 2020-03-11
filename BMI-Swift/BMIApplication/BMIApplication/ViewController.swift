@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, TabBarDelegate {
 
     // 身長Outlet接続
     @IBOutlet weak var he_title: UILabel!
@@ -64,6 +64,28 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return formattedToday
     }
     
+    func dateList(formattedToday: String) -> Array<String> {
+        if dateRecordList == [] {
+            dateRecordList = [formattedToday]
+        }
+        if dateRecordList.index(of: "\(formattedToday)") == nil {
+            print("ないよ")
+            dateRecordList.append(formattedToday)
+        } else {
+            print("あるよ")
+        }
+        let a = UserDefaults.standard
+        a.set(dateRecordList, forKey: "dateArray")
+        if let isa = a.array(forKey: "dateArray") {
+            print("isa = \(isa)")
+        }
+        return dateRecordList
+    }
+    
+    func didSelectTab(tabBarController: TabBarController) {
+        // ここで呼ばれた時の処理かく
+    }
+    
     // bmiボタンタップ処理
     @IBAction func bmiButtonTap(_ sender: UIButton) {
         // 入力値がどちらか一方でも空の場合
@@ -103,26 +125,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // 今日の日付フォーマット処理呼び出し
         let formattedToday = dateFormat()
         
-        // 日付保存用変数
-        if dateRecordList == [] {
-            dateRecordList = [formattedToday]
+        // 日付リスト作成処理呼び出し
+        if formattedToday != nil {
+            dateList(formattedToday: formattedToday)
         }
-        if let firstIndex = dateRecordList.index(of: "\(formattedToday)") {
-            print("あるよ")
-        } else {
-            print("ないよ")
-            dateRecordList.append(formattedToday)
-        }
+        
+        // 各データを格納した配列作成
+        let he_String = String(he_double)
+        let we_String = String(we_double)
+        let bmi_String = String(bmiCalcResult)
+        let inputDataArray: [String] = [formattedToday, he_String, we_String, bmi_String]
         
         // bmi保存処理
-        bmiRecordValue.set(bmiCalcResult, forKey: formattedToday)
+        bmiRecordValue.set(inputDataArray, forKey: formattedToday)
         // bmi取り出し処理
-        if let isBmiRecord = bmiRecordValue.string(forKey: formattedToday) {
-            print("key=\(formattedToday), 身長=\(he_double), 体重=\(we_double), BMI=\(isBmiRecord)")
+        if let isBmiRecord = bmiRecordValue.array(forKey: formattedToday) {
+            print("\(isBmiRecord)")
             print("\(dateRecordList)")
         }
-        
-        let recordViewController = RecordViewController()
     }
     
     // キーボードクローズ処理

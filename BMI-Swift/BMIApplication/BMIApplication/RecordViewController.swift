@@ -8,11 +8,11 @@
 
 import UIKit
 
-class RecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TabBarDelegate {
     
     @IBOutlet weak var headerTitle: UINavigationBar!
     
-    var TODO = [""]
+    var oneBmiRecord = [""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,25 +31,49 @@ class RecordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let bmiRecordValue = UserDefaults.standard
         let viewController = ViewController()
         let formattedToday = viewController.dateFormat()
+        let dateList = viewController.dateList(formattedToday: formattedToday)
+        print(dateList)
         
-        let record = bmiRecordValue.string(forKey: formattedToday) as! String
-        TODO = [record]
+        for _ in dateList {
+            var i = 0
+            if let isBmiRecord = bmiRecordValue.array(forKey: dateList[i]) {
+                print("\(dateList[i])")
+                print("isBmiRecord = \(isBmiRecord)")
+            
+                oneBmiRecord = ["\(isBmiRecord)"]
+                oneBmiRecord.append("\(isBmiRecord)")
+                i = i + 1
+                print(i)
+            }
+        }
     }
     
     // セルの個数をカウント
-    func cellCount(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         recordIntoCell()
-        return TODO.count
+        return oneBmiRecord.count
     }
     
     // セルに値を設定するデータソースメソッド
-    internal func dataSetOfCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         recordIntoCell()
         // セルを取得する
         let bmiRecordDateCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "bmiRecordDateCell", for: indexPath)
         // セルに表示する値を設定する
-        bmiRecordDateCell.textLabel!.text = TODO[indexPath.row]
+        bmiRecordDateCell.textLabel!.text = oneBmiRecord[indexPath.row]
         return bmiRecordDateCell
+    }
+    
+    func didSelectTab(tabBarController: TabBarController) {
+        // ここで呼ばれた時の処理かく
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            recordIntoCell()
+            // セルを取得する
+            let bmiRecordDateCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "bmiRecordDateCell", for: indexPath)
+            // セルに表示する値を設定する
+            bmiRecordDateCell.textLabel!.text = oneBmiRecord[indexPath.row]
+            return bmiRecordDateCell
+        }
     }
 
 }
