@@ -64,6 +64,7 @@ class ViewController: UIViewController, UITextFieldDelegate, TabBarDelegate {
         return formattedToday
     }
     
+    // 日付リスト作成
     func dateList(formattedToday: String) -> Array<String> {
         if dateRecordList == [] {
             dateRecordList = [formattedToday]
@@ -74,9 +75,9 @@ class ViewController: UIViewController, UITextFieldDelegate, TabBarDelegate {
         } else {
             print("あるよ")
         }
-        let a = UserDefaults.standard
-        a.set(dateRecordList, forKey: "dateArray")
-        if let isa = a.array(forKey: "dateArray") {
+        let dateList = UserDefaults.standard
+        dateList.set(dateRecordList, forKey: "dateArray")
+        if let isa = dateList.array(forKey: "dateArray") {
             print("isa = \(isa)")
         }
         return dateRecordList
@@ -126,9 +127,7 @@ class ViewController: UIViewController, UITextFieldDelegate, TabBarDelegate {
         let formattedToday = dateFormat()
         
         // 日付リスト作成処理呼び出し
-        if formattedToday != nil {
-            dateList(formattedToday: formattedToday)
-        }
+        dateList(formattedToday: formattedToday)
         
         // 各データを格納した配列作成
         let he_String = String(he_double)
@@ -140,8 +139,8 @@ class ViewController: UIViewController, UITextFieldDelegate, TabBarDelegate {
         bmiRecordValue.set(inputDataArray, forKey: formattedToday)
         // bmi取り出し処理
         if let isBmiRecord = bmiRecordValue.array(forKey: formattedToday) {
-            print("\(isBmiRecord)")
-            print("\(dateRecordList)")
+            print("isBmiRecord = \(isBmiRecord)")
+            print("dateRecordList = \(dateRecordList)")
         }
     }
     

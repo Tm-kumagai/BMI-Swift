@@ -10,6 +10,7 @@ import UIKit
 
 class RecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TabBarDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerTitle: UINavigationBar!
     
     var oneBmiRecord = [""]
@@ -19,7 +20,18 @@ class RecordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // title変更
         headerTitle.items![0].title = "履歴"
+
+        tableView.delegate = self //デリゲート指定
+        tableView.dataSource = self //データソース指定
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        recordIntoCell() //viewWillAppearに書くことで追加後、前の画面に戻ってもすぐに更新がみれます。
+        tableView.reloadData()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,19 +43,20 @@ class RecordViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let bmiRecordValue = UserDefaults.standard
         let viewController = ViewController()
         let formattedToday = viewController.dateFormat()
-        let dateList = viewController.dateList(formattedToday: formattedToday)
-        print(dateList)
+        var dateList = UserDefaults.standard
+        dateList = dateList.array(forKey: "dateArray")
+        print("dateList = \(dateList)")
         
         for _ in dateList {
             var i = 0
             if let isBmiRecord = bmiRecordValue.array(forKey: dateList[i]) {
-                print("\(dateList[i])")
+                print("dateList[i] = \(dateList[i])")
                 print("isBmiRecord = \(isBmiRecord)")
             
                 oneBmiRecord = ["\(isBmiRecord)"]
                 oneBmiRecord.append("\(isBmiRecord)")
                 i = i + 1
-                print(i)
+                print("i = \(i)")
             }
         }
     }
