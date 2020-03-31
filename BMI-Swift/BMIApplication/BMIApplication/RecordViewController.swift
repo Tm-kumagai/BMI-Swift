@@ -40,25 +40,22 @@ class RecordViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // BMI履歴をセルに入れる
     func recordIntoCell() {
-        let bmiRecordValue = UserDefaults.standard
         let viewController = ViewController()
         let formattedToday = viewController.dateFormat()
-        var dateList = UserDefaults.standard
-        dateList = dateList.array(forKey: "dateArray")
-        print("dateList = \(dateList)")
+        let dateUserDefaults = UserDefaults.standard
+        let dateList: [String] = dateUserDefaults.array(forKey: "dateArray") as! [String]
+        let bmiUserDefaults = UserDefaults.standard
+        let bmiRecord = bmiUserDefaults.array(forKey: formattedToday)
         
-        for _ in dateList {
-            var i = 0
-            if let isBmiRecord = bmiRecordValue.array(forKey: dateList[i]) {
-                print("dateList[i] = \(dateList[i])")
-                print("isBmiRecord = \(isBmiRecord)")
-            
-                oneBmiRecord = ["\(isBmiRecord)"]
-                oneBmiRecord.append("\(isBmiRecord)")
-                i = i + 1
-                print("i = \(i)")
-            }
+        print("ここからrecordIntoCell()")
+        print("dateList = \(dateList)")
+        print("bmiRecord = \(bmiRecord)")
+        
+        
+        for i in dateList {
+            print("dateList[i] = \(dateList)")
         }
+        print("ここまでrecordIntoCell()")
     }
     
     // セルの個数をカウント
@@ -79,14 +76,6 @@ class RecordViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func didSelectTab(tabBarController: TabBarController) {
         // ここで呼ばれた時の処理かく
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            recordIntoCell()
-            // セルを取得する
-            let bmiRecordDateCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "bmiRecordDateCell", for: indexPath)
-            // セルに表示する値を設定する
-            bmiRecordDateCell.textLabel!.text = oneBmiRecord[indexPath.row]
-            return bmiRecordDateCell
-        }
     }
 
 }
